@@ -1,0 +1,15 @@
+.LoginLayout{
+    background:rgb(255, 247, 237);    
+    box-shadow: 2px 2px 3px rgb(0 0 0 / 50%);
+    border-bottom-style: inset;
+    border-bottom-color: cornflowerblue;
+    padding:20px;
+    border-radius:6px;
+}
+.LogSignHeadTitle{
+    text-align: center;
+    font-family: 'Montserrat' ;
+    font-weight: 700;
+    margin-Top:15px;
+    text-shadow: 2px 2px 4px rgba(42, 42, 42, 0.50);
+}

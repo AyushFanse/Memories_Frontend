@@ -1,0 +1,22 @@
+#menuItemsOut{
+    display:flex;
+    justify-content:flex-start;
+}
+#menuItems{
+    font-size: 18px;
+    display:flex;
+    justify-content:space-around;
+    opacity:0.8;
+}
+#menuItemsIcon{
+    width: 20px;    
+    opacity:0.5;
+}
+#menuItemsOut:hover #menuItems{
+    opacity:1;
+    color:rgb(32, 144, 236);
+}
+#menuItemsOut:hover #menuItemsIcon{
+    opacity:1;
+    color:rgb(32, 144, 236);
+}

@@ -1,0 +1,33 @@
+.Navbar_MD{
+    visibility: hidden;
+    opacity: 0;
+}
+.upload__icon{
+    visibility: visible;
+    opacity: 1;
+}
+@media (max-width: 767px){
+    .Navbar_MD{
+        visibility: visible;
+        opacity: 1;
+    }
+    .upload__icon{
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+.TITLE{
+    font-size:1.7rem;
+    font-weight:700;
+    font-family: 'Montserrat' ;
+    letter-spacing:1px;
+}
+.Text_Deco{
+    text-decoration:none;
+    text-transform:uppercase;
+    color: white;
+    cursor: pointer;
+}
+.Text_Deco:hover{
+    color: white;
+}
