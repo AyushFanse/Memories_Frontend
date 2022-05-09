@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import NavbarMD from "../components/Navbar_for_MD";
+import Navbar from "../../components/Navbar";
+import NavbarMD from "../../components/Navbar_for_MD";
 import {Box, Grid } from '@mui/material';
 import jwt from 'jsonwebtoken';
-import "./CSS/Home.css";
+import "../Home/Home.css";
 
 
 const Error = () => {

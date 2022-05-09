@@ -1,32 +1,39 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from 'react-router-dom';
+import Navbar from "../../components/Navbar";
 import jwt from 'jsonwebtoken';
-import NavbarMD from "../components/Navbar_for_MD";
+import NavbarMD from "../../components/Navbar_for_MD";
 
-const AddUser = (props) => {
+const EditUser = ({ URL }) => {
   const history = useHistory();
+  const { ID } = useParams();  
   const localToken = localStorage.getItem('token');
   const decodedToken = jwt.decode(localToken);
   const [data, setData] = useState({
     name: "",
     image: "",
-    description:"",
-    useremail:decodedToken.user.email
+    description:""
   });
-  const DataBase = 'https://memorable-memories.herokuapp.com';
 
-  useEffect(()=>{
-    if(decodedToken==null){
+
+  useEffect(() => {
+    if(localToken===null){
       history.replace('/');
       alert("Session Timeout Please Login Again...");
-  }else{
+    }else{
           if(decodedToken.exp*1000<=Date.now()){
             history.replace('/');
             alert("Session Timeout Please Login Again...");
-          }}
-  },[])
-  
+          }else{
+                if(ID){
+                    fetch(`${URL}/upload/${ ID }`)
+                      .then((res) => res.json())
+                      .then((data) => setData(data))
+                }else{
+                    return null
+                  } }}
+  }, []);
+
   const handleChange = (name) => (e) => {
     const value = name === "image" ? e.target.files[0] : e.target.value;
     setData({ ...data, [name]: value });
@@ -35,23 +42,23 @@ const AddUser = (props) => {
   const handleSubmit = async () => {
     try {
       let formData = new FormData();
-      formData.append("user_email", data.useremail);
       formData.append("image", data.image);
       formData.append("name", data.name);
       formData.append("description", data.description);
 
-      const res = await fetch(`${DataBase}/upload`, {
-        method: "POST",
+      const res = await fetch(`${URL}/upload/${ ID }`, {
+        method: "PUT",
         body: formData,
       });
       if (res.ok) {
-        setData({ name: "", image: "", description:"", useremail:"" });
+        setData({ name: "", image: "", description:"" });
         history.replace("/home");
       }
     } catch (error) {
-      console.log(error);
+      console.warn(error);
     }
   };
+
 
   return (
     <>
@@ -61,7 +68,6 @@ const AddUser = (props) => {
             <div className="mb-3">
               <input
                 className="form-control"
-                placeholder="Enter name"
                 type="text"
                 name="name"
                 value={data.name}
@@ -90,7 +96,7 @@ const AddUser = (props) => {
             </div>
             <div className="text-center">
               <button className="btn btn-primary" onClick={handleSubmit}>
-                Submit
+                Update
               </button>
             </div>
           </div>
@@ -100,4 +106,4 @@ const AddUser = (props) => {
   );
 };
 
-export default AddUser;
+export default EditUser;

@@ -1,22 +1,21 @@
 import {Button,Grid,Typography,Box} from '@mui/material';
 import React, {useEffect, useState} from 'react';
 import { useHistory } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import NavbarMD from "../components/Navbar_for_MD";
+import Navbar from "../../components/Navbar";
+import NavbarMD from "../../components/Navbar_for_MD";
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
-import "./CSS/Profile.css";
+import "./Profile.css";
 
 
 
-const ProfileComponent = (props)=>{
+const ProfileComponent = ({ URL })=>{
 
 
 const [user, setUser] = useState([]);
 const localToken = localStorage.getItem('token');
 const decodedToken = jwt.decode(localToken);
 const history = useHistory();
-const DataBase = 'https://memorable-memories.herokuapp.com';
 
 useEffect( () =>{ 
 
@@ -29,7 +28,7 @@ const Fatch = (async()=>{
                 history.replace('/');
                 alert("Session Timeout Please Login Again...");
             }else{
-                fetch(`${DataBase}/users/getuser/${ decodedToken.user._id}`)
+                fetch(`${URL}/users/getuser/${ decodedToken.user._id}`)
                       .then((res) => res.json())
                       .then((data) => setUser(data))
             }
@@ -40,7 +39,7 @@ Fatch()
 const DeleteAccount = (async (id)=>{
     if(window.confirm('Are you sure?')){
         try {
-        const res = await axios.delete(`${DataBase}/users/deleteuser/${id}`)
+        const res = await axios.delete(`${URL}/users/deleteuser/${id}`)
 
         if (res.status === "OK") {
             localStorage.removeItem('token');

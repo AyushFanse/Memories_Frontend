@@ -1,23 +1,18 @@
 import React, {useState} from 'react';
-import axios from 'axios';
+import {Alert,Stack,IconButton,Button,Link,Grid,TextField,FormControl,InputLabel, Input,InputAdornment,Box} from '@mui/material';
+import { Visibility, VisibilityOff, AccountCircle } from '@mui/icons-material';
 import { useHistory } from "react-router-dom";
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-import {IconButton,Button,Link,Grid,TextField,FormControl,InputLabel, Input,InputAdornment,Box} from '@mui/material';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import "./CSS/LoginAndSignup.css"
+import "./LoginAndSignup.css"
+import axios from 'axios'; 
 
 
-const LoginComponent = (props) => {
+const LoginComponent = ({ URL }, props) => {
 
 const [email, setEmail] = useState('');
 const [password,setPassword] = useState('');
 const [Worning,setWorning] = useState('');
 const [showPassword,setShowPassword] = useState('');
 const history = useHistory();
-const DataBase = 'https://memorable-memories.herokuapp.com';
     
 const handleClickShowPassword = (e) => {
     setShowPassword(e.currentTarget);
@@ -36,7 +31,7 @@ let response = '';
         if( email==='' && password==='' ){ 
             setWorning({ status:'error', msg:'Please fill all the details..!!!' });      
             }else{
-                response = await axios.post(`${DataBase}/register/login`, {
+                response = await axios.post(`${URL}/register/login`, {
                     password: password.value,
                     email: email.value
                 }) 

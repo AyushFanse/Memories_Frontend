@@ -3,23 +3,22 @@ import { MoreVert } from '@mui/icons-material';
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
-import Navbar from "../components/Navbar";
-import NavbarMD from "../components/Navbar_for_MD";
-import "./CSS/Home.css";
+import Navbar from "../../components/Navbar";
+import NavbarMD from "../../components/Navbar_for_MD";
+import "./Home.css";
 import jwt from 'jsonwebtoken';
 import moment from 'moment';
 import {Box, IconButton, Menu, MenuItem, Grid, Tooltip} from '@mui/material';
 
-const Home = () => {
+const Home = ({URL}) => {
   const [users, setUsers] = useState([]); 
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [post, setPost] = useState([]);
   const [display, setDisplay] = useState(false);
   const localToken = localStorage.getItem('token');
   const decodedToken = jwt.decode(localToken);
-  const Email= decodedToken.user.email;
+  const Email = decodedToken.user.email;
   const history = useHistory();
-  const DataBase = 'https://memorable-memories.herokuapp.com';
 
   useEffect(() => {
 
@@ -32,7 +31,7 @@ const Home = () => {
             alert("Session Timeout Please Login Again...");
             }else{
               const fetchUsers = (async () => {
-                  const res = await axios.get(`${DataBase}/upload`);
+                  const res = await axios.get(`${URL}/upload`);
 
                   const filter = ((filter)=>{
                     setUsers( 
@@ -61,7 +60,7 @@ const Home = () => {
 
     if(window.confirm('Are you sure?')){
       try {
-          const res = await axios.delete(`${DataBase}/upload/${id}`);
+          const res = await axios.delete(`${URL}/upload/${id}`);
 
           if (res.status === "OK") {
             const updatedUsers = users.filter((user) => user._id !== id);
