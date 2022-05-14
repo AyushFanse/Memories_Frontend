@@ -65,7 +65,6 @@ const LoginComponent = ({ URL }) => {
                 return;
             }
 
-            console.log(err.response.data)
             setWorning({ status: 'error', msg: err.response.data.msg });
             setLoading(false)
         }
