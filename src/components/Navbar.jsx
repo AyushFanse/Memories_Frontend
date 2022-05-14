@@ -45,16 +45,16 @@ const Navbar = (props) => {
   };
 
   const home = ()=>{
-    history.replace('/home');
+    history.push('/home');
   };
 
   const profile = ()=>{
-    history.replace('/profile');
+    history.push('/profile');
   };
 
   const logout = ()=>{
     localStorage.removeItem('token');
-    history.replace('/');
+    history.push('/');
     alert('You have been logged out');
   };
 

@@ -5,9 +5,11 @@
 #menuItems{
     font-size: 18px;
     display:flex;
+    text-transform: capitalize;
     justify-content:space-around;
     opacity:0.8;
 }
+
 #menuItemsIcon{
     width: 20px;    
     opacity:0.5;
@@ -19,4 +21,13 @@
 #menuItemsOut:hover #menuItemsIcon{
     opacity:1;
     color:rgb(32, 144, 236);
+}
+
+#appbar{
+    background:rgba(58, 56, 56, 0.373);
+    backdrop-filter: blur(2px);
+}
+
+.css-1t29gy6-MuiToolbar-root{
+    align-items:flex-end;
 }

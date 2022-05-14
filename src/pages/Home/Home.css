@@ -1,114 +1,202 @@
-.card:hover{
+.card:hover {
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.26);
-    transform: translateY(-1px) ;
+    transform: translateY(-1px);
 }
-.tools{
-    position:absolute;
-    top:8px;
-    right:8px;
-    color:#ffffff;
+
+.tools {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: #ffffff;
 }
-.MoreVert{
-    text-shadow: 10px 10px 10px #f30a0a ;
+
+.MoreVert {
+    text-shadow: 10px 10px 10px #f30a0a;
     filter: drop-shadow(0px 0px 4px #000);
 }
-.PostAt{
-    position:absolute;
-    font-size:0.7rem;
-    top:12px;
-    left:12px;
-    padding: 0 5px;
+
+.PostAt {
+    position: absolute;
+    font-size: 0.7rem;
+    top: 12px;
+    left: 12px;
+    padding: 0 10px;
     border-left: ridge;
     font-style: oblique;
     font-variant: petite-caps;
-    color:white; 
-    text-shadow: 0px 0px 2px #000;
+    color: white;
+    text-shadow: 1px 1px 4px #000;
+    background: rgba(80, 80, 80, 0.254);
+    backdrop-filter: blur(1px);
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 15px;
     font-weight: 600;
 }
-.Img__Outter{
-    padding:0px;
-    border-radius: 20px;   
-    overflow: hidden; 
+
+.Img__Outter {
+    padding: 0px;
+    border-radius: 20px;
+    overflow: hidden;
     border-bottom-color: currentcolor;
 }
-.img-responsive{
-    width:100%;
-    height:200px;
+
+.img-responsive {
+    width: 100%;
+    height: 200px;
     object-fit: cover;
-    padding:0px;
+    padding: 0px;
     border-bottom-style: groove;
-    margin:0px
+    margin: 0px
 }
+
 .Title {
-    font-size: 1.2rem;
-    padding:5px 10px;
+    font-size: 1.1rem;
+    padding: 5px 10px;
     text-align: center;
+    font-weight: 600;
 }
+
 .Discription {
     font-size: 1rem;
-    padding:0px 12px;
+    padding: 0px 12px;
     text-align: justify;
+    white-space: pre-line;
+    font-family: 'Montserrat';
+    font-weight: 500;
 }
-.postContainerOutter{
-    margin:100px 60px;
+
+.postContainerOutter {
+    margin: 100px 60px;
 }
-.postContainer{
-    display:flex;
-    justify-content:space-evenly;
+
+.postContainer {
+    display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
-.postMess{
-    position:absolute;
-    top:70px;
-    right:10px;
+
+.postMess {
+    position: absolute;
+    top: 70px;
+    right: 10px;
     z-index: 1000;
 }
-.noPosts{
-    width:300px;
-    height:100%;
 
-}
-.noPosts img{
-    width:100%;
-    height:100%;
-
-}
-.errorPosts{
-    width:500px;
-    height:100%;
-
-}
-.errorPosts img{
-    width:100%;
-    height:100%;
+.noPosts {
+    width: 300px;
+    height: 100%;
 
 }
 
+.noPosts img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.errorPosts {
+    width: 500px;
+    height: 100%;
+
+}
+
+.errorPosts img {
+    width: 100%;
+    height: 100%;
+
+}
+
+#postItemsOut {
+    display: flex;
+    justify-content: flex-start;
+    padding: 2px 6px;
+    min-width: 70px;
+}
+
+#postItems {
+    font-size: 0.7rem;
+    display: flex;
+    font-weight: 500;
+    font-family: 'Montserrat';
+    text-transform: capitalize;
+    padding-left: 4px;
+    justify-content: space-around;
+    opacity: 0.6;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+    border-left: 2px solid #1976d2;
+}
+
+#postItemsOut:hover #postItems {
+    opacity: 1;
+    color: #1976d2;
+}
+
+@media (min-width: 575.42px) {
+    .CardLayout {
+        min-width: 305px;
+    }
+
+    .tools {
+        opacity: 0;
+    }
+
+    .PostAt {
+        opacity: 0;
+    }
+
+    .Img__Outter:hover .PostAt,
+    .Img__Outter:hover .tools {
+        opacity: 1;
+    }
+}
 
 /*---------------------------------* MEDIA UNDER MD *---------------------------------*/
 
-@media (max-width: 768px){    
-    .img-responsive{
-        height:100%;
+@media (max-width: 575.42px) {
+    .img-responsive {
+        height: 100%;
     }
-    .postContainerOutter{
-        margin:60px 0px 80px 0px;
+
+    .PostAt {
+        font-size: 0.9rem;
     }
+
+    .postContainerOutter {
+        margin: 60px 0px 80px 0px;
+    }
+
     .Title {
         font-size: 1.5rem;
     }
+
     .Discription {
         font-size: 1.2rem;
     }
-    .noPosts{
-        width:200px;
-        height:200px;    
+
+    .noPosts {
+        width: 200px;
+        height: 200px;
     }
-    .errorPosts{
-        width:200px;
-        height:100%;    
+
+    .errorPosts {
+        width: 200px;
+        height: 100%;
     }
-    .emptyContainerOutter{
-        margin:60px 0px 80px 0px;
+
+    .emptyContainerOutter {
+        margin: 60px 0px 80px 0px;
+    }
+
+    #postItemsOut {
+        display: flex;
+        justify-content: flex-start;
+        padding: 3px 8px;
+        min-width: 100px;
+        min-height: 0px;
+    }
+
+    #postItems {
+        font-size: 1.2rem;
     }
 }

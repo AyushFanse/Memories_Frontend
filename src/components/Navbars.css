@@ -19,7 +19,8 @@
 .TITLE{
     font-size:1.7rem;
     font-weight:700;
-    font-family: 'Montserrat' ;
+    font-family: 'Montserrat' ;    
+    text-shadow: 4px 4px 15px #0000008c;
     letter-spacing:1px;
 }
 .Text_Deco{
@@ -30,4 +31,41 @@
 }
 .Text_Deco:hover{
     color: white;
+}  
+.manuOut{
+    margin-top:46px;
 }
+#menuItemsOut{
+    display:flex;
+    justify-content:flex-start;
+}
+#menuItems{
+    font-size: 18px;
+    display:flex;
+    font-weight: 600;
+    font-family:'Montserrat';
+    justify-content:space-around;
+    opacity:0.6;
+}
+.uploadIconOut{    
+    text-decoration:none;
+    bottom: -5px;
+    background:white;
+    color: white;
+    cursor: pointer;
+}
+.uploadIconOut:hover{
+    color: rgb(224, 224, 224);
+}  
+#uploadIcon{    
+    background:rgba(189, 189, 189, 0.9);
+    backdrop-filter: blur(5px);
+    top: -20px;
+    color: rgb(19, 19, 19);
+    border: 6px solid white
+}
+#uploadIcon:hover{
+    background: rgb(196, 196, 196);
+    color: rgb(37, 37, 37);
+    backdrop-filter: none;
+}  
