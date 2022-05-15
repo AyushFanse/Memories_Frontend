@@ -29,12 +29,12 @@ const LoginComponent = ({ URL }) => {
         e.preventDefault();
         const data = contactForm.current;
 
-        let response = '';
+
         try {
             setLoading(true)
             if (data.first_name.value && data.last_name.value && data.username.value && data.email.value && data.number.value && data.password.value) {
 
-                response = await axios.post(`${URL}/register/registeruser`, {
+                let response = await axios.post(`${URL}/register/registeruser`, {
                     first_name: data.first_name.value,
                     last_name: data.last_name.value,
                     username: data.username.value,
@@ -53,7 +53,7 @@ const LoginComponent = ({ URL }) => {
                 }
 
             } else {
-                setWorning({ status: 'error', msg: response.data.msg })
+                setWorning({ status: 'error', msg: 'Please fill all the details..!!!' })
             }
         } catch (err) {
 
