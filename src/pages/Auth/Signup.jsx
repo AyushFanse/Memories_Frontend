@@ -43,15 +43,13 @@ const LoginComponent = ({ URL }) => {
                     password: data.password.value,
                 })
 
-                setWorning(response.data);
-
                 if (response.status === 200) {
                     history.push('/');
-                    setWorning({ status: 'error', msg: "Your Are offline" })
+                    alert("You have successfully created your account...");
                 }
 
                 if (response.status === 400) {
-                    alert("You have successfully created your account...");
+                    setWorning({ status: 'error', msg: "Your Are offline" })
                 }
 
             } else {
