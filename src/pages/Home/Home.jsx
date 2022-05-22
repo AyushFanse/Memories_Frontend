@@ -174,7 +174,7 @@ return (
             :
             <div className="emptyContainerOutter">
               <div className="noPosts">
-                <img src="ImageNotFound.png" alt="Img" />
+                <img src="https://i.ibb.co/4sngpqg/pngegg-3.png" alt="" />
               </div>
             </div>
         }

@@ -36,7 +36,7 @@ const Error = () => {
         <Grid className="postContainer">
           <Box className="emptyContainerOutter">
             <div className="errorPosts">
-              <img src="https://i.ibb.co/SJdXspD/pngegg-2.png" alt="Img" />
+              <img src="https://i.ibb.co/7bRJYFx/pngegg-2.png" alt="Img" />
             </div>
           </Box>
         </Grid>

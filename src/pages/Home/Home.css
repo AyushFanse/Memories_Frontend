@@ -83,7 +83,7 @@
 }
 
 .noPosts {
-    width: 300px;
+    width: 400px;
     height: 100%;
 
 }
@@ -175,8 +175,8 @@
     }
 
     .noPosts {
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: auto;
     }
 
     .errorPosts {
