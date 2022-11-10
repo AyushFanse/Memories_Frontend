@@ -1,6 +1,5 @@
-import * as React from 'react';
 import { MoreVert } from '@mui/icons-material';
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import Navbar from "../../components/Navbar";
@@ -12,7 +11,7 @@ import moment from 'moment';
 import { Box, IconButton, Menu, MenuItem, Grid, Typography, Tooltip } from '@mui/material';
 import fileDownload from 'js-file-download'
 
-const Home = ({ URL }, props) => {
+const Home = ({ URL }) => {
   const [users, setUsers] = useState([]);
   const [anchorElUser, setAnchorElUser] = useState();
   const [post, setPost] = useState([]);
