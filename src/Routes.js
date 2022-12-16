@@ -8,7 +8,7 @@ import EditUser from "./pages/Profile/EditUser";
 import AddMemory from "./pages/Addition/AddMemory";
 import EditMemory from "./pages/Addition/EditMemory";
 import Error from "./pages/Error/Error";
-const URL = 'https://memories-memorable.herokuapp.com';
+const URL = "https://memories-memorable.onrender.com";
 
 function App() {
   return (
